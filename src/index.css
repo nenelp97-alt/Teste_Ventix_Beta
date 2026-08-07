@@ -1,0 +1,91 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Abril+Fatface:wght@400&family=Rubik+Mono+One:wght@400&family=Albert+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 221.2 83.2% 53.3%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+    font-family: var(--font-inter);
+    min-height: 100vh;
+    margin: 0;
+  }
+}/* Blindagem anti-modo escuro / roxo */
+.dark, html.dark, body.dark {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Força os cards e fundos internos a ficarem limpos */
+.dark\:bg-slate-900, .dark\:bg-slate-950, .dark\:bg-zinc-900, .dark\:bg-background {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}/* Força os cards e elementos internos a ficarem brancos e legíveis */
+.bg-card, .bg-background, div[class*="rounded-xl"], div[class*="rounded-lg"] {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Corrige textos que ficaram com cores estouradas dentro dos cards */
+.text-card-foreground, .text-foreground {
+  color: #0f172a !important;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animação mais lenta e fluida: surge transparente e ganha cor/nitidez ao longo de 2.5 segundos */
+@keyframes ventixRevealSlow {
+  0% {
+    opacity: 0.05;
+    filter: brightness(0.6) blur(4px);
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1.1) blur(0px);
+    transform: scale(1);
+  }
+}
+
+.animate-ventix-reveal-slow {
+  animation: ventixRevealSlow 6.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}

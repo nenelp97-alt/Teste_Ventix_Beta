@@ -4,7 +4,7 @@ import { queryClientInstance } from '@/lib/query-client'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider } from '@/lib/AuthContext';
-import ProtectedRoute from '@/components/protectedroute.jsx';
+import ProtectedRoute from '@/components/ProtectedRoute.jsx';
 import AppLayout from '@/components/layout/AppLayout';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
